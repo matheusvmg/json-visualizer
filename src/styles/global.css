@@ -1,0 +1,121 @@
+:root {
+  --bg:         #282a36;
+  --bg-alt:     #1e1f29;
+  --surface:    #343746;
+  --border:     #44475a;
+  --comment:    #6272a4;
+  --fg:         #f8f8f2;
+  --cyan:       #8be9fd;
+  --green:      #50fa7b;
+  --orange:     #ffb86c;
+  --pink:       #ff79c6;
+  --purple:     #bd93f9;
+  --red:        #ff5555;
+  --yellow:     #f1fa8c;
+  --font-mono:  'Fira Code', 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  --font-ui:    'Fira Code', 'Inter', system-ui, -apple-system, sans-serif;
+  --radius:     6px;
+  --transition: 150ms ease;
+}
+
+:root.light-mode {
+  --bg:         #f8f8f2;
+  --bg-alt:     #eaeaeb;
+  --surface:    #ffffff;
+  --border:     #d1d1d1;
+  --comment:    #6272a4;
+  --fg:         #282a36;
+  --cyan:       #005f87;
+  --green:      #1a803a;
+  --orange:     #c1440e;
+  --pink:       #930058;
+  --purple:     #662d91;
+  --red:        #911a1a;
+  --yellow:     #636300;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-variant-ligatures: contextual;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Custom Dracula Highlighting Overrides */
+.hljs-attr { color: var(--cyan); }
+.hljs-string { color: var(--yellow); }
+.hljs-number { color: var(--purple); }
+.hljs-literal { color: var(--orange); }
+.hljs-keyword { color: var(--pink); }
+.hljs-comment { color: var(--comment); }
+.hljs-bullet { color: var(--green); }
+
+/* Custom Scrollbar Dracula */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface);
+  border-radius: 5px;
+  border: 2px solid var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border);
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  color: var(--fg);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+pre, code {
+  font-family: var(--font-mono);
+  text-align: left; /* Ensure it's not centered */
+}
