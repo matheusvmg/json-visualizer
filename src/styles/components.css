@@ -195,11 +195,7 @@
 
 /* Input Panel Overlay */
 .input-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  flex: 1;
   background-color: var(--bg);
   display: flex;
   flex-direction: column;
@@ -207,6 +203,8 @@
   justify-content: center;
   z-index: 10;
   padding: 40px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .input-container {
@@ -525,6 +523,8 @@
 @media (max-width: 768px) {
   .app-container {
     flex-direction: column;
+    height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height for mobile browsers */
   }
 
   .sidebar {
@@ -534,6 +534,7 @@
     border-right: none;
     border-bottom: 1px solid var(--border);
     transition: max-height 0.3s ease;
+    flex-shrink: 0;
   }
 
   .sidebar.collapsed {
@@ -579,6 +580,13 @@
     opacity: 0.8; /* Always visible on mobile touch */
   }
 
+  .main-content {
+    flex: 1;
+    min-height: 0; /* Allow flex shrinking */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .split-view {
     flex-direction: column;
   }
@@ -595,6 +603,8 @@
 
   .input-overlay {
     padding: 20px;
+    justify-content: flex-start;
+    padding-top: 24px;
   }
 
   .input-container {
@@ -611,6 +621,11 @@
 
   .json-textarea, .json-tree-node {
     font-size: 0.95rem;
+  }
+
+  /* Prevent iOS auto-zoom on textarea focus */
+  .paste-area textarea {
+    font-size: 16px;
   }
 
   .diagram-toolbar {
